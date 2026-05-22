@@ -1,174 +1,280 @@
-// ── Custom cursor ────────────────────────────────────────────────────
-const cur=document.getElementById('cursor'), ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function animRing(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Abdul Hakim | AI Marketing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/src/styles.css"/>
+</head>
+<body>
 
-// ── Scroll progress ──────────────────────────────────────────────────
-const prog=document.getElementById('progress'),nav=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{
-  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
-  prog.style.width=pct+'%';
-  nav.classList.toggle('scrolled',window.scrollY>60);
-});
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
 
-// ── Reveal on scroll ─────────────────────────────────────────────────
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+<!-- SCROLL PROGRESS -->
+<div id="progress"></div>
 
-// ── Typing animation ─────────────────────────────────────────────────
-const phrases=['AI Marketing Specialist','LLM Systems Builder','Fintech Risk Expert','Prompt Engineer','AI-Powered Marketer'];
-let pi=0,ci=0,del=false;const typed=document.getElementById('typed-text');
-function type(){
-  const p=phrases[pi];
-  if(!del){typed.textContent=p.slice(0,++ci);if(ci===p.length){del=true;setTimeout(type,1800);return}}
-  else{typed.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length}}
-  setTimeout(type,del?50:90);
-}
-setTimeout(type,600);
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">AH.</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#github-section">GitHub</a>
+    <a href="#contact-section" class="nav-cta">Hire Me</a>
+  </div>
+</nav>
 
-// ── Counter animation ────────────────────────────────────────────────
-const counterObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    const el=e.target,target=+el.dataset.target,dur=1500;
-    let start=null;
-    function step(ts){if(!start)start=ts;const p=Math.min((ts-start)/dur,1);el.textContent=Math.floor(p*target)+(p<1?'':'+');if(p<1)requestAnimationFrame(step)}
-    requestAnimationFrame(step);
-    counterObs.unobserve(el);
-  });
-},{threshold:.5});
-document.querySelectorAll('.counter').forEach(el=>counterObs.observe(el));
+<!-- HERO -->
+<section id="hero">
+  <div class="grid-bg"></div>
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text">Open to opportunities · Kuala Lumpur</span>
+    </div>
+    <div class="hero-name">Abdul Hakim<br><em>bin Shaisham</em></div>
+    <div class="hero-title"><span id="typed-text"></span><span class="typing-cursor"></span></div>
+    <p class="hero-desc">
+      I'm not a traditional marketer. I <strong>build the AI systems that run the marketing</strong> — content pipelines, analytics engines, and LLM-powered workflows — backed by a rare combination of <strong>actuarial science, fintech risk</strong>, and hands-on AI engineering.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+      <a href="https://github.com/Hakimcorleone" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="mailto:Hakimshaisham02@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num counter" data-target="5">0</span><div class="stat-label">Years in Fintech</div></div>
+      <div class="stat"><span class="stat-num">3×</span><div class="stat-label">AI Systems Built</div></div>
+      <div class="stat"><span class="stat-num counter" data-target="16">0</span><div class="stat-label">GitHub Repos</div></div>
+    </div>
+  </div>
+</section>
 
-// ── 3D card tilt ─────────────────────────────────────────────────────
-document.querySelectorAll('[data-tilt]').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
-    const rx=(y/r.height-.5)*10,ry=(x/r.width-.5)*-10;
-    card.style.transform=`translateY(-6px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-  });
-  card.addEventListener('mouseleave',()=>{card.style.transform='';});
-});
-
-// ── GitHub repos ─────────────────────────────────────────────────────
-const GITHUB='Hakimcorleone';
-const LANG_COLORS={JavaScript:'#F7DF1E',TypeScript:'#2B7489',Python:'#3572A5',HTML:'#E34C26',CSS:'#563D7C',Shell:'#89E051','Jupyter Notebook':'#DA5B0B',Vue:'#41B883',Go:'#00ADD8'};
-let allRepos=[];
-
-function timeAgo(d){
-  const diff=Date.now()-new Date(d),days=Math.floor(diff/86400000);
-  if(days<1)return'today';if(days<7)return days+'d ago';
-  if(days<30)return Math.floor(days/7)+'w ago';
-  if(days<365)return Math.floor(days/30)+'mo ago';
-  return Math.floor(days/365)+'y ago';
-}
-
-function renderRepos(repos){
-  const grid=document.getElementById('repos-grid');
-  grid.innerHTML='';
-  if(!repos.length){grid.innerHTML='<div class="gh-error" style="grid-column:1/-1;color:var(--muted);font-size:12px;text-align:center;padding:40px">// no repositories match this filter</div>';return;}
-  repos.forEach(r=>{
-    const c=LANG_COLORS[r.language]||'#6B7A99';
-    const card=document.createElement('a');
-    card.className='repo-card';
-    card.href=r.html_url;
-    card.target='_blank';
-    card.innerHTML=`
-      <div class="repo-name">
-        <svg viewBox="0 0 16 16" fill="currentColor" width="14" height="14"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 000 2h.75a.75.75 0 110 1.5H4.5A2.5 2.5 0 012 13.5z"/></svg>
-        ${r.name}
+<!-- ABOUT -->
+<div id="about">
+<div class="section">
+  <div class="eyebrow">About</div>
+  <h2>Governance meets<br><em>generative AI.</em></h2>
+  <div class="about-grid">
+    <div class="reveal">
+      <p class="about-p">I'm a <strong>Senior Executive in Integrity & Governance</strong> at Perbadanan PR1MA Malaysia, with a background in actuarial science and experience at <strong>Citi</strong> and <strong>RBC</strong>.</p>
+      <p class="about-p">What sets me apart: I understand <strong>financial risk models</strong> and I can build a Claude API content pipeline. I've deployed LLM workflows in production, built Power BI dashboards for board-level reporting, and shipped AI-assisted marketing systems for real clients — with measurable outcomes.</p>
+      <p class="about-p">I'm actively pivoting toward <strong>AI Engineering</strong> (roadmap: Jan 2027), and applying that momentum to fintech marketing roles where compliance-safe communication and AI execution intersect.</p>
+      <div class="skill-tags">
+        <span class="skill-tag accent">Claude API</span>
+        <span class="skill-tag accent">Prompt Engineering</span>
+        <span class="skill-tag accent">LLM Workflows</span>
+        <span class="skill-tag accent">ISO 37001</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">React</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">RAG Systems</span>
+        <span class="skill-tag">AI Agents</span>
+        <span class="skill-tag">Actuarial Science</span>
+        <span class="skill-tag">GA4 Analytics</span>
+        <span class="skill-tag">Power Automate</span>
       </div>
-      <div class="repo-desc">${r.description||'// no description'}</div>
-      <div class="repo-meta">
-        ${r.language?`<span class="repo-lang-dot" style="background:${c}"></span><span class="repo-lang-name">${r.language}</span>`:''}
-        <span class="repo-stars" style="margin-left:${r.language?'auto':'0'}">★ ${r.stargazers_count}</span>
-        <span style="color:var(--dim);font-size:10px">${timeAgo(r.updated_at)}</span>
-      </div>`;
-    grid.appendChild(card);
-  });
-}
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="about-card">
+        <div class="about-card-head">
+          <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div></div>
+          <span style="margin-left:8px">tech-stack.json</span>
+        </div>
+        <div class="about-card-body">
+          <div class="stack-group">
+            <div class="stack-group-label">AI & LLM</div>
+            <div class="stack-chips"><span class="chip">Claude API</span><span class="chip">OpenAI</span><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">RAG</span></div>
+          </div>
+          <div class="stack-group">
+            <div class="stack-group-label">Data & Analytics</div>
+            <div class="stack-chips"><span class="chip">Power BI</span><span class="chip">GA4</span><span class="chip">Meta Ads</span><span class="chip">Pandas</span><span class="chip">Excel VBA</span></div>
+          </div>
+          <div class="stack-group">
+            <div class="stack-group-label">Build & Ship</div>
+            <div class="stack-chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">GitHub</span><span class="chip">Power Automate</span></div>
+          </div>
+          <div class="stack-group">
+            <div class="stack-group-label">Fintech Domain</div>
+            <div class="stack-chips"><span class="chip">Risk Mgmt</span><span class="chip">ISO 37001</span><span class="chip">Basel III</span><span class="chip">Compliance</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-function buildFilters(repos){
-  const langs=[...new Set(repos.map(r=>r.language).filter(Boolean))];
-  const bar=document.getElementById('lang-filters');
-  bar.innerHTML='';
-  const all=document.createElement('button');all.className='lang-btn active';all.textContent='All';
-  all.onclick=()=>{document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));all.classList.add('active');renderRepos(allRepos);};
-  bar.appendChild(all);
-  langs.forEach(lang=>{
-    const btn=document.createElement('button');btn.className='lang-btn';btn.textContent=lang;
-    btn.onclick=()=>{document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderRepos(allRepos.filter(r=>r.language===lang));};
-    bar.appendChild(btn);
-  });
-}
+<!-- PROJECTS -->
+<div id="projects">
+<div class="section">
+  <div class="eyebrow">Featured Work</div>
+  <h2>AI marketing systems<br>with real outcomes.</h2>
+  <div class="projects-grid">
 
-const FALLBACK_REPOS=[
-  {
-    name:'portfolio',
-    description:'Personal AI marketing portfolio website.',
-    html_url:`https://github.com/${GITHUB}`,
-    language:'HTML',
-    stargazers_count:0,
-    updated_at:new Date().toISOString()
-  },
-  {
-    name:'ai-marketing-systems',
-    description:'LLM workflow, content automation, and analytics experiments.',
-    html_url:`https://github.com/${GITHUB}`,
-    language:'JavaScript',
-    stargazers_count:0,
-    updated_at:new Date().toISOString()
-  },
-  {
-    name:'governance-risk-dashboard',
-    description:'Risk, integrity, and governance dashboard concepts.',
-    html_url:`https://github.com/${GITHUB}`,
-    language:'Python',
-    stargazers_count:0,
-    updated_at:new Date().toISOString()
-  }
-];
+    <div class="proj-card reveal" data-tilt>
+      <div class="proj-accent" style="background:var(--teal)"></div>
+      <div class="proj-num">01 · Automation</div>
+      <div class="proj-icon" style="background:rgba(0,200,160,.1)">🤖</div>
+      <h3>AI Content Engine</h3>
+      <div class="proj-sub">Takaful Agent · Social Media Pipeline · 3+ months</div>
+      <p class="proj-desc">Repeatable Claude-powered system generating 3–4 posts/week from a monthly client brief. Localised for BM + Islamic finance context. Client operates it independently.</p>
+      <div class="proj-result" style="background:rgba(0,200,160,.06);border-left-color:var(--teal)">
+        <span style="color:var(--teal)">→ 2 policy conversions from Instagram DMs</span>
+      </div>
+      <div class="proj-tools">
+        <span class="proj-tool">Claude API</span><span class="proj-tool">Prompt Systems</span><span class="proj-tool">Canva</span><span class="proj-tool">WhatsApp</span>
+      </div>
+    </div>
 
-function showGitHubFallback(message){
-  allRepos=FALLBACK_REPOS;
-  buildFilters(allRepos);
-  renderRepos(allRepos);
-  const grid=document.getElementById('repos-grid');
-  const note=document.createElement('div');
-  note.className='gh-error';
-  note.style.gridColumn='1/-1';
-  note.style.padding='8px 0 0';
-  note.style.textAlign='center';
-  note.style.color='var(--dim)';
-  note.style.fontSize='11px';
-  note.innerHTML=`// live GitHub repos unavailable right now: ${message}. <a href="https://github.com/${GITHUB}" target="_blank" style="color:var(--blue)">open GitHub ↗</a>`;
-  grid.appendChild(note);
-}
+    <div class="proj-card reveal reveal-d1" data-tilt>
+      <div class="proj-accent" style="background:var(--blue)"></div>
+      <div class="proj-num">02 · Copywriting</div>
+      <div class="proj-icon" style="background:rgba(79,142,247,.1)">✍️</div>
+      <h3>AI Copy Pipeline</h3>
+      <div class="proj-sub">WebKraf · SME Landing Pages · Ongoing</div>
+      <p class="proj-desc">Intake form → structured Claude prompt → full copy pack (headline, benefit blocks, CTA). Productised as part of every WebKraf package. 45 min vs 3 hrs manual.</p>
+      <div class="proj-result" style="background:rgba(79,142,247,.06);border-left-color:var(--blue)">
+        <span style="color:var(--blue)">→ Bounce rate ↓18% · Session time ↑ 155%</span>
+      </div>
+      <div class="proj-tools">
+        <span class="proj-tool">Claude</span><span class="proj-tool">HTML/CSS</span><span class="proj-tool">GA4</span><span class="proj-tool">Hotjar</span>
+      </div>
+    </div>
 
-async function loadGitHub(){
-  const controller=new AbortController();
-  const timeoutId=setTimeout(()=>controller.abort(),6000);
+    <div class="proj-card reveal reveal-d2" data-tilt>
+      <div class="proj-accent" style="background:var(--amber)"></div>
+      <div class="proj-num">03 · Analytics</div>
+      <div class="proj-icon" style="background:rgba(245,166,35,.1)">📊</div>
+      <h3>AI Insight Reports</h3>
+      <div class="proj-sub">Marketing Analytics Pipeline · 4 months</div>
+      <p class="proj-desc">Raw Meta export → Claude narrative prompt → one-page PDF with 3 findings + 3 recommendations. Turned number dumps into decision-making tools clients act on.</p>
+      <div class="proj-result" style="background:rgba(245,166,35,.06);border-left-color:var(--amber)">
+        <span style="color:var(--amber)">→ Engagement rate ↑ 2.1% → 3.8%</span>
+      </div>
+      <div class="proj-tools">
+        <span class="proj-tool">Claude</span><span class="proj-tool">Meta Suite</span><span class="proj-tool">Power BI</span><span class="proj-tool">PDF</span>
+      </div>
+    </div>
 
-  try{
-    const res=await fetch(`https://api.github.com/users/${GITHUB}/repos?sort=updated&per_page=16&type=public`,{
-      signal:controller.signal,
-      headers:{Accept:'application/vnd.github+json'}
-    });
-    clearTimeout(timeoutId);
+  </div>
+</div>
+</div>
 
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    allRepos=await res.json();
+<!-- EXPERIENCE -->
+<div id="experience" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="section">
+  <div class="eyebrow">Experience</div>
+  <h2>Where I've been.</h2>
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-year">2025 – Now</div>
+      <div class="tl-content">
+        <div class="tl-role">Senior Executive, Integrity & Governance</div>
+        <div class="tl-company">Perbadanan PR1MA Malaysia</div>
+        <ul class="tl-bullets">
+          <li>Deployed Claude API document automation, cutting drafting time from days to hours</li>
+          <li>Designed Power BI dashboards for ARMC board-level reporting (risk heatmaps, analytics)</li>
+          <li>Built Power Automate + SharePoint workflow eliminating manual email chains across 15+ departments</li>
+          <li>Led ISO 37001 ABMS vendor evaluation — structured technical & commercial scoring</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2023 – 2025</div>
+      <div class="tl-content">
+        <div class="tl-role">Assistant Manager, Governance & Risk</div>
+        <div class="tl-company">MyCreative Ventures Sdn Bhd</div>
+        <ul class="tl-bullets">
+          <li>Designed whistleblowing, sensitive info, and support letter policies organisation-wide</li>
+          <li>Led OACP 2022–2025 execution — cross-functional quarterly initiatives</li>
+          <li>Managed whistleblowing reports under strict 3-day SLA with structured investigation process</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021 – 2023</div>
+      <div class="tl-content">
+        <div class="tl-role">Executive, Risk & Financial Analytics</div>
+        <div class="tl-company">Citibank Malaysia</div>
+        <ul class="tl-bullets">
+          <li>Automated monthly risk reporting with Excel VBA — 3 days → under 4 hours</li>
+          <li>Built actuarial/risk models for consumer banking credit portfolios</li>
+          <li>Basel III/IV data preparation for internal audit and compliance submissions</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2021</div>
+      <div class="tl-content">
+        <div class="tl-role">Executive, Transaction Management</div>
+        <div class="tl-company">Royal Bank of Canada</div>
+        <ul class="tl-bullets">
+          <li>Processed and monitored trade transactions in STE environment</li>
+          <li>Resolved trade discrepancies with clients and internal stakeholders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-    if(!Array.isArray(allRepos)||!allRepos.length){
-      showGitHubFallback('no public repositories returned');
-      return;
-    }
+<!-- GITHUB -->
+<div id="github-section">
+<div class="gh-wrap">
+  <div class="gh-top reveal">
+    <div>
+      <div class="eyebrow">GitHub</div>
+      <h2 style="margin-bottom:0">Live from<br><em>the repo.</em></h2>
+    </div>
+    <div class="gh-live">
+      <div class="gh-dot"></div>
+      <span>github.com/Hakimcorleone</span>
+    </div>
+  </div>
+  <div id="lang-filters" class="lang-filters"></div>
+  <div id="repos-grid" class="repos-grid">
+    <div class="gh-loading">fetching repositories from GitHub API...</div>
+  </div>
+</div>
+</div>
 
-    buildFilters(allRepos);
-    renderRepos(allRepos);
-  }catch(err){
-    clearTimeout(timeoutId);
-    showGitHubFallback(err.name==='AbortError'?'request timed out':err.message);
-  }
-}
-loadGitHub();
+<!-- CONTACT -->
+<div id="contact-section">
+  <div class="eyebrow" style="justify-content:center">Contact</div>
+  <h2>Let's build something<br><em>intelligent.</em></h2>
+  <p class="contact-sub">Open to AI marketing roles, fintech opportunities, and consulting work.<br>Based in Kuala Lumpur · Available now.</p>
+  <div class="contact-grid">
+    <a href="mailto:Hakimshaisham02@gmail.com" class="contact-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>Hakimshaisham02@gmail.com</span>
+    </a>
+    <a href="https://linkedin.com/in/hakimshaisham" target="_blank" class="contact-card">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      <span>linkedin.com/in/hakimshaisham</span>
+    </a>
+    <a href="https://github.com/Hakimcorleone" target="_blank" class="contact-card">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+      <span>github.com/Hakimcorleone</span>
+    </a>
+    <a href="tel:+60186959795" class="contact-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span>+6018-695 9795</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>Built with HTML + GitHub API · © 2026 Abdul Hakim bin Shaisham · <a href="https://github.com/Hakimcorleone" target="_blank">github.com/Hakimcorleone</a></p>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
