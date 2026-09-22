@@ -1,37 +1,29 @@
-# Abdul Hakim Portfolio Website
+# Abdul Hakim Portfolio
 
-Personal portfolio website built with vanilla HTML, CSS, JavaScript, and Vite.
+An editorial portfolio for Abdul Hakim bin Shaisham, focused on practical AI workflows for governance and risk.
 
-## Project Structure
+## Run locally
 
-```txt
-.
-|-- index.html
-|-- package.json
-|-- vercel.json
-|-- README.md
-`-- src/
-    |-- styles.css
-    `-- main.js
-```
-
-## Scripts
-
-```bash
+```sh
+npm install
 npm run dev
-npm run build
-npm run preview
 ```
 
-## Vercel Deployment
+Vercel uses `npm run build` and serves the generated `dist` directory.
 
-This project is configured as a Vite app.
+## Project structure
 
-- Framework Preset: Vite
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Node.js: `20.x`
+- `index.html` — content and page structure
+- `src/styles.css` — responsive layout and visual design
+- `src/main.js` — mobile navigation and small UI behaviour
+- `public/images/` — locally stored PNG photographs sourced from Unsplash
 
-## Notes
+The I.R.I.S. dashboard and memo graphics are illustrative HTML and CSS mockups. The featured projects are described as portfolio prototypes or concepts, and the site does not claim that those interfaces are production deployments.
 
-The HTML entry point is `index.html`. It loads `/src/styles.css` and `/src/main.js` for Vite processing.
+## Photography
+
+The photos are locally stored PNGs and credited in the site footer:
+
+- [Edgar — modern building with geometric lines and glass](https://unsplash.com/photos/XALyj0z5bgw)
+- [Amal K Raju — abstract architectural lines with light and shadow](https://unsplash.com/photos/qaO04vmpMd8)
+- [rawkkim — concrete staircase](https://unsplash.com/photos/Zdg2Q1LN9f0)

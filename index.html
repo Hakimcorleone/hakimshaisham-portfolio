@@ -1,280 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Abdul Hakim | AI Marketing Specialist</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/src/styles.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f1">
+  <meta name="description" content="Abdul Hakim bin Shaisham builds practical AI workflows for governance, risk and business operations.">
+  <title>Abdul Hakim — AI for governance and risk</title>
+  <link rel="preload" as="image" href="/images/glass-architecture.png">
+  <link rel="stylesheet" href="/src/styles.css">
 </head>
 <body>
-
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
-<!-- SCROLL PROGRESS -->
-<div id="progress"></div>
-
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-logo" onclick="scrollTo({top:0,behavior:'smooth'})">AH.</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#github-section">GitHub</a>
-    <a href="#contact-section" class="nav-cta">Hire Me</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="grid-bg"></div>
-  <div class="glow-orb orb1"></div>
-  <div class="glow-orb orb2"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="badge-dot"></div>
-      <span class="badge-text">Open to opportunities · Kuala Lumpur</span>
-    </div>
-    <div class="hero-name">Abdul Hakim<br><em>bin Shaisham</em></div>
-    <div class="hero-title"><span id="typed-text"></span><span class="typing-cursor"></span></div>
-    <p class="hero-desc">
-      I'm not a traditional marketer. I <strong>build the AI systems that run the marketing</strong> — content pipelines, analytics engines, and LLM-powered workflows — backed by a rare combination of <strong>actuarial science, fintech risk</strong>, and hands-on AI engineering.
-    </p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn btn-primary">View Projects ↓</a>
-      <a href="https://github.com/Hakimcorleone" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-      <a href="mailto:Hakimshaisham02@gmail.com" class="btn btn-ghost">Get in Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num counter" data-target="5">0</span><div class="stat-label">Years in Fintech</div></div>
-      <div class="stat"><span class="stat-num">3×</span><div class="stat-label">AI Systems Built</div></div>
-      <div class="stat"><span class="stat-num counter" data-target="16">0</span><div class="stat-label">GitHub Repos</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<div id="about">
-<div class="section">
-  <div class="eyebrow">About</div>
-  <h2>Governance meets<br><em>generative AI.</em></h2>
-  <div class="about-grid">
-    <div class="reveal">
-      <p class="about-p">I'm a <strong>Senior Executive in Integrity & Governance</strong> at Perbadanan PR1MA Malaysia, with a background in actuarial science and experience at <strong>Citi</strong> and <strong>RBC</strong>.</p>
-      <p class="about-p">What sets me apart: I understand <strong>financial risk models</strong> and I can build a Claude API content pipeline. I've deployed LLM workflows in production, built Power BI dashboards for board-level reporting, and shipped AI-assisted marketing systems for real clients — with measurable outcomes.</p>
-      <p class="about-p">I'm actively pivoting toward <strong>AI Engineering</strong> (roadmap: Jan 2027), and applying that momentum to fintech marketing roles where compliance-safe communication and AI execution intersect.</p>
-      <div class="skill-tags">
-        <span class="skill-tag accent">Claude API</span>
-        <span class="skill-tag accent">Prompt Engineering</span>
-        <span class="skill-tag accent">LLM Workflows</span>
-        <span class="skill-tag accent">ISO 37001</span>
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">RAG Systems</span>
-        <span class="skill-tag">AI Agents</span>
-        <span class="skill-tag">Actuarial Science</span>
-        <span class="skill-tag">GA4 Analytics</span>
-        <span class="skill-tag">Power Automate</span>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="site-header">
+    <nav class="shell nav" aria-label="Main navigation">
+      <a class="wordmark" href="#top" aria-label="Abdul Hakim, back to top">AH<span>.</span></a>
+      <div class="nav-links"><a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a></div>
+      <a class="nav-contact" href="mailto:Hakimshaisham02@gmail.com">Let's talk <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden><a href="#work">Work</a><a href="#approach">Approach</a><a href="#experience">Experience</a><a href="mailto:Hakimshaisham02@gmail.com">Let's talk ↗</a></div>
+  </header>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-copy">
+        <p class="eyebrow"><i class="status-dot"></i> Abdul Hakim bin Shaisham <span>/</span> Kuala Lumpur</p>
+        <h1>Making complex work <em>feel clear.</em></h1>
+        <p class="hero-lede">I build practical AI workflows for governance, risk and business operations — grounded in experience inside regulated organisations.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work <span aria-hidden="true">↗</span></a><a class="text-link" href="#about">More about me <span aria-hidden="true">↓</span></a></div>
       </div>
-    </div>
-    <div class="reveal reveal-d1">
-      <div class="about-card">
-        <div class="about-card-head">
-          <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div></div>
-          <span style="margin-left:8px">tech-stack.json</span>
-        </div>
-        <div class="about-card-body">
-          <div class="stack-group">
-            <div class="stack-group-label">AI & LLM</div>
-            <div class="stack-chips"><span class="chip">Claude API</span><span class="chip">OpenAI</span><span class="chip">LangChain</span><span class="chip">FAISS</span><span class="chip">RAG</span></div>
-          </div>
-          <div class="stack-group">
-            <div class="stack-group-label">Data & Analytics</div>
-            <div class="stack-chips"><span class="chip">Power BI</span><span class="chip">GA4</span><span class="chip">Meta Ads</span><span class="chip">Pandas</span><span class="chip">Excel VBA</span></div>
-          </div>
-          <div class="stack-group">
-            <div class="stack-group-label">Build & Ship</div>
-            <div class="stack-chips"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Python</span><span class="chip">GitHub</span><span class="chip">Power Automate</span></div>
-          </div>
-          <div class="stack-group">
-            <div class="stack-group-label">Fintech Domain</div>
-            <div class="stack-chips"><span class="chip">Risk Mgmt</span><span class="chip">ISO 37001</span><span class="chip">Basel III</span><span class="chip">Compliance</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+      <div class="hero-image-wrap"><img src="/images/glass-architecture.png" alt="Geometric glass architecture photographed by Edgar" width="1600" height="850" fetchpriority="high"><div class="hero-image-shade"></div><div class="shell hero-image-label"><span>Structure creates possibility.</span><span>01 / 03</span></div></div>
+    </section>
 
-<!-- PROJECTS -->
-<div id="projects">
-<div class="section">
-  <div class="eyebrow">Featured Work</div>
-  <h2>AI marketing systems<br>with real outcomes.</h2>
-  <div class="projects-grid">
+    <section class="intro section-pad" id="about">
+      <div class="shell section-grid"><p class="section-index">01 / INTRODUCTION</p><div><h2 class="display-heading">The bridge between <span>control</span> and <span>creation.</span></h2><div class="intro-bottom"><p>I'm a Senior Executive in Integrity & Governance at Perbadanan PR1MA Malaysia, with an actuarial science background and earlier experience at Citi and RBC. I understand the documentation, controls and decisions behind risk work. I use that context to shape useful AI tools.</p><a class="underlined-link" href="#experience">Explore my background ↗</a></div></div></div>
+    </section>
 
-    <div class="proj-card reveal" data-tilt>
-      <div class="proj-accent" style="background:var(--teal)"></div>
-      <div class="proj-num">01 · Automation</div>
-      <div class="proj-icon" style="background:rgba(0,200,160,.1)">🤖</div>
-      <h3>AI Content Engine</h3>
-      <div class="proj-sub">Takaful Agent · Social Media Pipeline · 3+ months</div>
-      <p class="proj-desc">Repeatable Claude-powered system generating 3–4 posts/week from a monthly client brief. Localised for BM + Islamic finance context. Client operates it independently.</p>
-      <div class="proj-result" style="background:rgba(0,200,160,.06);border-left-color:var(--teal)">
-        <span style="color:var(--teal)">→ 2 policy conversions from Instagram DMs</span>
-      </div>
-      <div class="proj-tools">
-        <span class="proj-tool">Claude API</span><span class="proj-tool">Prompt Systems</span><span class="proj-tool">Canva</span><span class="proj-tool">WhatsApp</span>
-      </div>
-    </div>
+    <section class="work-section" id="work">
+      <div class="shell section-grid work-heading"><p class="section-index">02 / SELECTED WORK</p><div><h2 class="display-heading">Ideas built for <span>real work.</span></h2><p>Selected portfolio concepts in AI governance and risk. Each one begins with a familiar operational problem.</p></div></div>
 
-    <div class="proj-card reveal reveal-d1" data-tilt>
-      <div class="proj-accent" style="background:var(--blue)"></div>
-      <div class="proj-num">02 · Copywriting</div>
-      <div class="proj-icon" style="background:rgba(79,142,247,.1)">✍️</div>
-      <h3>AI Copy Pipeline</h3>
-      <div class="proj-sub">WebKraf · SME Landing Pages · Ongoing</div>
-      <p class="proj-desc">Intake form → structured Claude prompt → full copy pack (headline, benefit blocks, CTA). Productised as part of every WebKraf package. 45 min vs 3 hrs manual.</p>
-      <div class="proj-result" style="background:rgba(79,142,247,.06);border-left-color:var(--blue)">
-        <span style="color:var(--blue)">→ Bounce rate ↓18% · Session time ↑ 155%</span>
-      </div>
-      <div class="proj-tools">
-        <span class="proj-tool">Claude</span><span class="proj-tool">HTML/CSS</span><span class="proj-tool">GA4</span><span class="proj-tool">Hotjar</span>
-      </div>
-    </div>
+      <article class="feature">
+        <div class="feature-copy"><p class="feature-kicker">01 <span>GOVERNANCE AI / PORTFOLIO PROTOTYPE</span></p><h3>I.R.I.S.<br><em>Risk Intelligence.</em></h3><p class="feature-summary">From scattered updates to a clearer view of risk.</p><p class="feature-description">An AI assisted workspace concept that turns policies, meeting notes and risk updates into structured risk registers, action trackers and committee ready summaries.</p><div class="feature-flow"><span>Source material</span><b>→</b><span>Structured risk</span><b>→</b><span>Decision brief</span></div><p class="feature-note">Portfolio prototype. The interface illustrates the intended workflow.</p></div>
+        <div class="feature-visual iris-visual"><img src="/images/architectural-light.png" alt="Minimal architectural lines and light photographed by Amal K Raju" width="1100" height="1200" loading="lazy"><div class="visual-scrim"></div><div class="mock-window" role="img" aria-label="Illustrative I.R.I.S. risk dashboard"><div class="mock-topbar">IRIS / RISK INTELLIGENCE <span>WORKSPACE</span></div><div class="mock-body"><div class="mock-sidebar"><span>Overview</span><span>Risk register</span><span>Action tracker</span><span>Briefs</span></div><div class="mock-main"><small>RISK OVERVIEW</small><strong>From signals to action.</strong><div class="mock-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="mock-row"><span>Operational risk review</span><b>IN REVIEW</b></div><div class="mock-row"><span>Control owner follow up</span><b>OPEN</b></div></div></div></div><span class="visual-caption">01 / ILLUSTRATIVE INTERFACE</span></div>
+      </article>
 
-    <div class="proj-card reveal reveal-d2" data-tilt>
-      <div class="proj-accent" style="background:var(--amber)"></div>
-      <div class="proj-num">03 · Analytics</div>
-      <div class="proj-icon" style="background:rgba(245,166,35,.1)">📊</div>
-      <h3>AI Insight Reports</h3>
-      <div class="proj-sub">Marketing Analytics Pipeline · 4 months</div>
-      <p class="proj-desc">Raw Meta export → Claude narrative prompt → one-page PDF with 3 findings + 3 recommendations. Turned number dumps into decision-making tools clients act on.</p>
-      <div class="proj-result" style="background:rgba(245,166,35,.06);border-left-color:var(--amber)">
-        <span style="color:var(--amber)">→ Engagement rate ↑ 2.1% → 3.8%</span>
-      </div>
-      <div class="proj-tools">
-        <span class="proj-tool">Claude</span><span class="proj-tool">Meta Suite</span><span class="proj-tool">Power BI</span><span class="proj-tool">PDF</span>
-      </div>
-    </div>
+      <article class="feature">
+        <div class="feature-copy"><p class="feature-kicker">02 <span>DOCUMENT AGENT / WORKFLOW CONCEPT</span></p><h3>Governance<br><em>Memo Agent.</em></h3><p class="feature-summary">Give the first draft a better starting point.</p><p class="feature-description">A structured drafting workflow for integrity papers, ABMS awareness notes, OACP updates and management memos. It pairs a fixed governance structure with evidence checks and review prompts.</p><div class="feature-flow"><span>Rough notes</span><b>→</b><span>Evidence check</span><b>→</b><span>Review draft</span></div><p class="feature-note">Workflow concept. Human review remains part of the process.</p></div>
+        <div class="feature-visual memo-visual"><div class="paper-back"></div><div class="paper-front" role="img" aria-label="Illustrative governance memo document"><small>GOVERNANCE / DRAFT 01</small><strong>Decision memo</strong><i class="paper-line wide"></i><i class="paper-line"></i><i class="paper-line short"></i><span>Evidence and considerations</span><i class="paper-line wide"></i><i class="paper-line"></i><i class="paper-line short"></i><b>REVIEW REQUIRED</b></div><span class="visual-caption">02 / FROM NOTES TO A REVIEWABLE DRAFT</span></div>
+      </article>
 
-  </div>
-</div>
-</div>
+      <article class="feature">
+        <div class="feature-copy"><p class="feature-kicker">03 <span>RISK COPILOT / AGENT CONCEPT</span></p><h3>Risk Register<br><em>Copilot.</em></h3><p class="feature-summary">Help teams see what needs attention next.</p><p class="feature-description">An agent concept for classifying risk descriptions, spotting possible control gaps, mapping mitigation owners and preparing follow up prompts for risk champions.</p><div class="feature-flow"><span>Risk description</span><b>→</b><span>Control review</span><b>→</b><span>Owner action</span></div><p class="feature-note">Concept only. Recommendations would require team validation.</p></div>
+        <div class="feature-visual risk-visual"><img src="/images/concrete-staircase.png" alt="Concrete staircase photographed by rawkkim" width="1100" height="1200" loading="lazy"><div class="risk-overlay"><span>CLARITY, STEP BY STEP</span><strong>Identify.<br>Assess.<br>Act.</strong></div><span class="visual-caption">03 / TURNING RISK INTO ACTION</span></div>
+      </article>
 
-<!-- EXPERIENCE -->
-<div id="experience" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-<div class="section">
-  <div class="eyebrow">Experience</div>
-  <h2>Where I've been.</h2>
-  <div class="timeline reveal">
-    <div class="tl-item">
-      <div class="tl-year">2025 – Now</div>
-      <div class="tl-content">
-        <div class="tl-role">Senior Executive, Integrity & Governance</div>
-        <div class="tl-company">Perbadanan PR1MA Malaysia</div>
-        <ul class="tl-bullets">
-          <li>Deployed Claude API document automation, cutting drafting time from days to hours</li>
-          <li>Designed Power BI dashboards for ARMC board-level reporting (risk heatmaps, analytics)</li>
-          <li>Built Power Automate + SharePoint workflow eliminating manual email chains across 15+ departments</li>
-          <li>Led ISO 37001 ABMS vendor evaluation — structured technical & commercial scoring</li>
-        </ul>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2023 – 2025</div>
-      <div class="tl-content">
-        <div class="tl-role">Assistant Manager, Governance & Risk</div>
-        <div class="tl-company">MyCreative Ventures Sdn Bhd</div>
-        <ul class="tl-bullets">
-          <li>Designed whistleblowing, sensitive info, and support letter policies organisation-wide</li>
-          <li>Led OACP 2022–2025 execution — cross-functional quarterly initiatives</li>
-          <li>Managed whistleblowing reports under strict 3-day SLA with structured investigation process</li>
-        </ul>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2021 – 2023</div>
-      <div class="tl-content">
-        <div class="tl-role">Executive, Risk & Financial Analytics</div>
-        <div class="tl-company">Citibank Malaysia</div>
-        <ul class="tl-bullets">
-          <li>Automated monthly risk reporting with Excel VBA — 3 days → under 4 hours</li>
-          <li>Built actuarial/risk models for consumer banking credit portfolios</li>
-          <li>Basel III/IV data preparation for internal audit and compliance submissions</li>
-        </ul>
-      </div>
-    </div>
-    <div class="tl-item">
-      <div class="tl-year">2021</div>
-      <div class="tl-content">
-        <div class="tl-role">Executive, Transaction Management</div>
-        <div class="tl-company">Royal Bank of Canada</div>
-        <ul class="tl-bullets">
-          <li>Processed and monitored trade transactions in STE environment</li>
-          <li>Resolved trade discrepancies with clients and internal stakeholders</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+      <div class="shell more-work"><div><p class="section-index">MORE EXPLORATIONS</p><h3>Curiosity in motion.</h3></div><ul><li><span>Whistleblowing Triage Assistant</span><small>Confidential case documentation concept</small></li><li><span>AI Job Application Agent</span><small>Resume matching and follow up workflow</small></li><li><span>Local SME Website Agent</span><small>Research, copy and landing page workflow</small></li></ul></div>
+    </section>
 
-<!-- GITHUB -->
-<div id="github-section">
-<div class="gh-wrap">
-  <div class="gh-top reveal">
-    <div>
-      <div class="eyebrow">GitHub</div>
-      <h2 style="margin-bottom:0">Live from<br><em>the repo.</em></h2>
-    </div>
-    <div class="gh-live">
-      <div class="gh-dot"></div>
-      <span>github.com/Hakimcorleone</span>
-    </div>
-  </div>
-  <div id="lang-filters" class="lang-filters"></div>
-  <div id="repos-grid" class="repos-grid">
-    <div class="gh-loading">fetching repositories from GitHub API...</div>
-  </div>
-</div>
-</div>
+    <section class="approach section-pad" id="approach"><div class="shell section-grid"><p class="section-index">03 / HOW I THINK</p><div><h2 class="display-heading">Useful AI starts with <span>understanding the work.</span></h2><div class="principles"><div><span>01</span><h3>Understand the decision.</h3><p>Start with the person, process and control the workflow needs to support.</p></div><div><span>02</span><h3>Structure the information.</h3><p>Turn messy inputs into clear, traceable material a team can review.</p></div><div><span>03</span><h3>Keep people in control.</h3><p>Build review into the process, especially in governance and risk.</p></div></div></div></div></section>
 
-<!-- CONTACT -->
-<div id="contact-section">
-  <div class="eyebrow" style="justify-content:center">Contact</div>
-  <h2>Let's build something<br><em>intelligent.</em></h2>
-  <p class="contact-sub">Open to AI marketing roles, fintech opportunities, and consulting work.<br>Based in Kuala Lumpur · Available now.</p>
-  <div class="contact-grid">
-    <a href="mailto:Hakimshaisham02@gmail.com" class="contact-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <span>Hakimshaisham02@gmail.com</span>
-    </a>
-    <a href="https://linkedin.com/in/hakimshaisham" target="_blank" class="contact-card">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-      <span>linkedin.com/in/hakimshaisham</span>
-    </a>
-    <a href="https://github.com/Hakimcorleone" target="_blank" class="contact-card">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-      <span>github.com/Hakimcorleone</span>
-    </a>
-    <a href="tel:+60186959795" class="contact-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-      <span>+6018-695 9795</span>
-    </a>
-  </div>
-</div>
+    <section class="experience section-pad" id="experience"><div class="shell section-grid"><p class="section-index">04 / EXPERIENCE</p><div><h2 class="display-heading">A foundation in <span>regulated work.</span></h2><div class="timeline"><div><time>2025 — NOW</time><section><h3>Senior Executive, Integrity & Governance</h3><p>Perbadanan PR1MA Malaysia</p></section></div><div><time>2023 — 2025</time><section><h3>Assistant Manager, Governance & Risk</h3><p>MyCreative Ventures Sdn Bhd</p></section></div><div><time>2021 — 2023</time><section><h3>Executive, Risk & Financial Analytics</h3><p>Citibank Malaysia</p></section></div><div><time>2021</time><section><h3>Executive, Transaction Management</h3><p>Royal Bank of Canada</p></section></div></div><p class="experience-outro">Actuarial science, banking operations and integrity governance inform how I approach every tool I build.</p></div></div></section>
 
-<footer>
-  <p>Built with HTML + GitHub API · © 2026 Abdul Hakim bin Shaisham · <a href="https://github.com/Hakimcorleone" target="_blank">github.com/Hakimcorleone</a></p>
-</footer>
-
-<script type="module" src="/src/main.js"></script>
+    <section class="contact section-pad" id="contact"><div class="shell contact-inner"><p class="section-index">05 / NEXT</p><h2>Let's make the complex <em>useful.</em></h2><p>Open to conversations about AI governance, AI risk, GRC automation and practical agent workflows.</p><a class="button button-light" href="mailto:Hakimshaisham02@gmail.com">Get in touch ↗</a><div class="contact-links"><a href="https://github.com/Hakimcorleone" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com/in/hakimshaisham" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="mailto:Hakimshaisham02@gmail.com">Email ↗</a></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><span>© <span id="year">2026</span> Abdul Hakim bin Shaisham</span><a href="#top">Back to top ↑</a></div><div class="shell photo-credits">Photography via Unsplash: <a href="https://unsplash.com/photos/XALyj0z5bgw" target="_blank" rel="noopener noreferrer">Edgar</a>, <a href="https://unsplash.com/photos/qaO04vmpMd8" target="_blank" rel="noopener noreferrer">Amal K Raju</a> and <a href="https://unsplash.com/photos/Zdg2Q1LN9f0" target="_blank" rel="noopener noreferrer">rawkkim</a>.</div></footer>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
