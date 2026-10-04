@@ -10,7 +10,7 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "devDependencies": {
     "vite": "^5.4.11"
